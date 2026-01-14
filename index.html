@@ -1,0 +1,800 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Stone Auto Glass - Professional Windscreen Repair & Replacement</title>
+  <meta name="description" content="Fast, professional auto glass services. Mobile windscreen repair & replacement at your location. Serving all makes and models." />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #e53e3e;
+      --primary-dark: #c53030;
+      --secondary: #3182ce;
+      --whatsapp: #25D366;
+      --whatsapp-dark: #128C7E;
+      --light: #f8f9fa;
+      --dark: #1a202c;
+      --gray-100: #f7fafc;
+      --gray-200: #edf2f7;
+      --gray-700: #4a5568;
+      --gray-800: #2d3748;
+      --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+      --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      line-height: 1.6;
+      color: var(--gray-700);
+      background: linear-gradient(rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.95)), 
+                  url('https://i.imgur.com/8KjFQoZ.jpg') no-repeat center;
+      background-size: cover;
+      scroll-behavior: smooth;
+    }
+
+    h1, h2, h3, h4 {
+      font-weight: 700;
+      color: var(--gray-800);
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    section {
+      padding: 5rem 0;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 600;
+      border-radius: 0.75rem;
+      padding: 1rem 2rem;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      box-shadow: var(--shadow);
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: white;
+    }
+    .btn-primary:hover {
+      background: var(--primary-dark);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .btn-whatsapp {
+      background: var(--whatsapp);
+      color: white;
+    }
+    .btn-whatsapp:hover {
+      background: var(--whatsapp-dark);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .btn-call {
+      background: var(--secondary);
+      color: white;
+    }
+    .btn-call:hover {
+      background: #2b6cb0;
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      padding: 1.25rem 0;
+      transition: all 0.3s ease;
+    }
+    header.scrolled {
+      background: white;
+      box-shadow: var(--shadow);
+      padding: 0.75rem 0;
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 1.25rem;
+      color: white;
+    }
+    header.scrolled .logo { color: var(--gray-800); }
+
+    .logo-icon {
+      background: var(--primary);
+      width: 2.5rem;
+      height: 2.5rem;
+      border-radius: 0.75rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+    }
+
+    .nav-links {
+      display: flex;
+      list-style: none;
+      gap: 1.5rem;
+    }
+
+    .nav-link {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+    header.scrolled .nav-link { color: var(--gray-700); }
+    .nav-link:hover { color: var(--primary); }
+
+    .mobile-menu-btn {
+      display: none;
+      background: none;
+      border: none;
+      color: white;
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+    header.scrolled .mobile-menu-btn { color: var(--gray-800); }
+
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)), 
+                  url('https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
+      color: white;
+      text-align: center;
+      padding-top: 5rem;
+    }
+
+    .hero-content {
+      max-width: 800px;
+      padding: 0 1rem;
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      margin-bottom: 1.5rem;
+      line-height: 1.2;
+    }
+
+    .hero p {
+      font-size: 1.25rem;
+      margin-bottom: 2rem;
+      opacity: 0.9;
+    }
+
+    .hero-cta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      justify-content: center;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 2.25rem;
+      margin-bottom: 3rem;
+      position: relative;
+    }
+    .section-title::after {
+      content: '';
+      position: absolute;
+      bottom: -0.75rem;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 3rem;
+      height: 0.25rem;
+      background: var(--primary);
+      border-radius: 1rem;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: start;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+
+    .card {
+      background: white;
+      border-radius: 1rem;
+      padding: 2rem;
+      box-shadow: var(--shadow);
+      transition: all 0.3s ease;
+    }
+    .card:hover {
+      transform: translateY(-8px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .card-icon {
+      width: 4rem;
+      height: 4rem;
+      background: #fee;
+      border-radius: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.5rem;
+      color: var(--primary);
+      font-size: 1.5rem;
+    }
+
+    .feature {
+      display: flex;
+      gap: 1rem;
+      padding: 1.5rem;
+      background: var(--gray-100);
+      border-radius: 0.75rem;
+      transition: all 0.3s ease;
+    }
+    .feature:hover {
+      background: white;
+      box-shadow: var(--shadow);
+    }
+
+    .feature-icon {
+      width: 2.5rem;
+      height: 2.5rem;
+      background: #fee;
+      border-radius: 0.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--primary);
+      flex-shrink: 0;
+    }
+
+    .contact-item {
+      display: flex;
+      gap: 1rem;
+      padding: 1.25rem;
+      background: var(--gray-100);
+      border-radius: 0.75rem;
+      margin-bottom: 1rem;
+    }
+
+    .contact-icon {
+      width: 2.25rem;
+      height: 2.25rem;
+      background: #e5e7eb;
+      border-radius: 0.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .office-hours li {
+      display: flex;
+      justify-content: space-between;
+      padding: 0.75rem 0;
+      border-bottom: 1px solid #e2e8f0;
+    }
+    .office-hours li:last-child {
+      border-bottom: none;
+    }
+
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+
+    .form-control {
+      width: 100%;
+      padding: 0.875rem 1rem;
+      border: 1px solid #cbd5e0;
+      border-radius: 0.5rem;
+      font-family: inherit;
+      font-size: 1rem;
+    }
+
+    .form-control:focus {
+      outline: none;
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(229, 62, 62, 0.2);
+    }
+
+    textarea.form-control {
+      min-height: 120px;
+      resize: vertical;
+    }
+
+    footer {
+      background: var(--gray-800);
+      color: white;
+      padding: 4rem 0 2rem;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin-bottom: 3rem;
+    }
+
+    .footer-links {
+      list-style: none;
+    }
+    .footer-links li {
+      margin-bottom: 0.75rem;
+    }
+    .footer-links a {
+      color: #a0aec0;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .footer-links a:hover {
+      color: white;
+    }
+
+    .social-links {
+      display: flex;
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+    .social-link {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 2.5rem;
+      height: 2.5rem;
+      background: #4a5568;
+      border-radius: 50%;
+      color: white;
+      text-decoration: none;
+      transition: all 0.3s;
+    }
+    .social-link:hover {
+      background: var(--primary);
+      transform: translateY(-3px);
+    }
+
+    .copyright {
+      text-align: center;
+      padding-top: 2rem;
+      border-top: 1px solid #4a5568;
+      color: #a0aec0;
+      font-size: 0.875rem;
+    }
+
+    .floating-buttons {
+      position: fixed;
+      bottom: 1.5rem;
+      right: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      z-index: 1000;
+    }
+
+    .float-btn {
+      width: 3.5rem;
+      height: 3.5rem;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      box-shadow: var(--shadow-lg);
+      transition: all 0.3s;
+      font-size: 1.25rem;
+    }
+
+    .whatsapp-btn {
+      background: var(--whatsapp);
+      color: white;
+    }
+    .whatsapp-btn:hover {
+      background: var(--whatsapp-dark);
+      transform: scale(1.1);
+    }
+
+    .call-btn {
+      background: var(--secondary);
+      color: white;
+    }
+    .call-btn:hover {
+      background: #2b6cb0;
+      transform: scale(1.1);
+    }
+
+    @media (max-width: 768px) {
+      .mobile-menu-btn { display: block; }
+      .nav-links {
+        position: fixed;
+        top: 100%;
+        left: 0;
+        background: white;
+        width: 100%;
+        flex-direction: column;
+        padding: 2rem 0;
+        box-shadow: var(--shadow-lg);
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-20px);
+        transition: all 0.3s ease;
+      }
+      .nav-links.active {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+        top: 72px;
+      }
+      .nav-link {
+        color: var(--gray-800);
+        padding: 1rem 2rem;
+        text-align: center;
+      }
+      .hero h1 { font-size: 2.25rem; }
+      .grid-2 { grid-template-columns: 1fr; }
+      .hero-cta { flex-direction: column; }
+      .btn { width: 100%; justify-content: center; }
+      .section-title { font-size: 1.875rem; }
+    }
+
+    @media (max-width: 480px) {
+      .hero { min-height: 85vh; }
+      .hero h1 { font-size: 1.875rem; }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header id="header">
+    <div class="container">
+      <nav class="navbar">
+        <a href="#home" class="logo">
+          <div class="logo-icon">
+            <i class="fas fa-car"></i>
+          </div>
+          <span>Stone Auto Glass</span>
+        </a>
+        <button class="mobile-menu-btn" id="mobileMenuBtn">
+          <i class="fas fa-bars"></i>
+        </button>
+        <ul class="nav-links" id="navLinks">
+          <li><a href="#home" class="nav-link">Home</a></li>
+          <li><a href="#about" class="nav-link">About</a></li>
+          <li><a href="#services" class="nav-link">Services</a></li>
+          <li><a href="#why-us" class="nav-link">Why Us</a></li>
+          <li><a href="#contact" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero" id="home">
+    <div class="hero-content">
+      <h1>Professional Auto Glass Services</h1>
+      <p>Fast, affordable windscreen repair and replacement for all vehicles</p>
+      <div class="hero-cta">
+        <a href="tel:0712833221" class="btn btn-call">
+          <i class="fas fa-phone mr-2"></i> Call: 071 283 3221
+        </a>
+        <a href="https://wa.me/27712833221" class="btn btn-whatsapp" target="_blank" rel="noopener noreferrer">
+          <i class="fab fa-whatsapp mr-2"></i> Chat on WhatsApp
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section class="bg-white" id="about">
+    <div class="container">
+      <h2 class="section-title">About Stone Auto Glass</h2>
+      <div class="grid-2">
+        <div>
+          <p style="font-size: 1.125rem; margin-bottom: 1.5rem;">
+            Stone Auto Glass is your trusted partner for all auto glass needs. With years of experience serving the community, 
+            we specialize in professional windscreen repair and replacement services for all vehicle makes and models.
+          </p>
+          
+          <h3 style="font-size: 1.5rem; margin: 1.5rem 0 1rem;">Our Services Include:</h3>
+          <ul style="list-style: none; margin-bottom: 2rem;">
+            <li style="margin-bottom: 0.75rem; display: flex; align-items: flex-start;">
+              <i class="fas fa-check-circle" style="color: #48bb78; margin-right: 0.5rem; margin-top: 0.25rem;"></i>
+              Windscreen Repair & Replacement
+            </li>
+            <li style="margin-bottom: 0.75rem; display: flex; align-items: flex-start;">
+              <i class="fas fa-check-circle" style="color: #48bb78; margin-right: 0.5rem; margin-top: 0.25rem;"></i>
+              Side Window Replacement
+            </li>
+            <li style="margin-bottom: 0.75rem; display: flex; align-items: flex-start;">
+              <i class="fas fa-check-circle" style="color: #48bb78; margin-right: 0.5rem; margin-top: 0.25rem;"></i>
+              Rear Window Replacement
+            </li>
+            <li style="margin-bottom: 0.75rem; display: flex; align-items: flex-start;">
+              <i class="fas fa-check-circle" style="color: #48bb78; margin-right: 0.5rem; margin-top: 0.25rem;"></i>
+              Smash & Grab Protection
+            </li>
+            <li style="margin-bottom: 0.75rem; display: flex; align-items: flex-start;">
+              <i class="fas fa-check-circle" style="color: #48bb78; margin-right: 0.5rem; margin-top: 0.25rem;"></i>
+              Mobile Service Available
+            </li>
+            <li style="margin-bottom: 0.75rem; display: flex; align-items: flex-start;">
+              <i class="fas fa-check-circle" style="color: #48bb78; margin-right: 0.5rem; margin-top: 0.25rem;"></i>
+              Insurance Claims Assistance
+            </li>
+          </ul>
+          
+          <a href="https://wa.me/27712833221" class="btn btn-whatsapp" target="_blank" rel="noopener noreferrer">
+            <i class="fab fa-whatsapp mr-2"></i> Chat on WhatsApp
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section class="bg-gray-50" id="services">
+    <div class="container">
+      <h2 class="section-title">Our Services</h2>
+      <div class="grid-3">
+        <div class="card">
+          <div class="card-icon"><i class="fas fa-tools"></i></div>
+          <h3>Windscreen Repair</h3>
+          <p>Quick and effective chip and crack repairs to restore your windscreen's integrity</p>
+        </div>
+        <div class="card">
+          <div class="card-icon"><i class="fas fa-window-maximize"></i></div>
+          <h3>Windscreen Replacement</h3>
+          <p>Complete replacement with high-quality glass and professional installation</p>
+        </div>
+        <div class="card">
+          <div class="card-icon"><i class="fas fa-car-side"></i></div>
+          <h3>Side Windows</h3>
+          <p>Replacement of door windows and vent glass for all vehicle types</p>
+        </div>
+        <div class="card">
+          <div class="card-icon"><i class="fas fa-shield-alt"></i></div>
+          <h3>Smash & Grab Protection</h3>
+          <p>Advanced security film installation to protect against break-ins</p>
+        </div>
+        <div class="card">
+          <div class="card-icon"><i class="fas fa-truck"></i></div>
+          <h3>Mobile Service</h3>
+          <p>We come to your location - home, office, or anywhere convenient</p>
+        </div>
+        <div class="card">
+          <div class="card-icon"><i class="fas fa-file-invoice-dollar"></i></div>
+          <h3>Insurance Claims</h3>
+          <p>We handle all insurance paperwork and deal directly with your insurer</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Choose Us -->
+  <section class="bg-white" id="why-us">
+    <div class="container">
+      <h2 class="section-title">Why Choose Stone Auto Glass</h2>
+      <div class="grid-3">
+        <div class="feature">
+          <div class="feature-icon"><i class="fas fa-check-circle"></i></div>
+          <div>
+            <h3>Experienced Technicians</h3>
+            <p>Certified professionals with years of experience</p>
+          </div>
+        </div>
+        <div class="feature">
+          <div class="feature-icon"><i class="fas fa-star"></i></div>
+          <div>
+            <h3>Quality Materials</h3>
+            <p>Premium glass and materials for all repairs</p>
+          </div>
+        </div>
+        <div class="feature">
+          <div class="feature-icon"><i class="fas fa-clock"></i></div>
+          <div>
+            <h3>Fast Service</h3>
+            <p>Most services completed in under 2 hours</p>
+          </div>
+        </div>
+        <div class="feature">
+          <div class="feature-icon"><i class="fas fa-shield-alt"></i></div>
+          <div>
+            <h3>Safety First</h3>
+            <p>Structural integrity always prioritized</p>
+          </div>
+        </div>
+        <div class="feature">
+          <div class="feature-icon"><i class="fas fa-certificate"></i></div>
+          <div>
+            <h3>Warranty Included</h3>
+            <p>Comprehensive warranty for your peace of mind</p>
+          </div>
+        </div>
+        <div class="feature">
+          <div class="feature-icon"><i class="fas fa-map-marker-alt"></i></div>
+          <div>
+            <h3>Mobile Service</h3>
+            <p>Convenient on-site service at no extra charge</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section class="bg-gray-50" id="contact">
+    <div class="container">
+      <h2 class="section-title">Contact Us</h2>
+      <div class="grid-2">
+        <div class="card">
+          <h3>Get In Touch</h3>
+          <div class="contact-item">
+            <div class="contact-icon" style="background:#bee3f8;"><i class="fas fa-phone" style="color:#3182ce;"></i></div>
+            <div><strong>Phone</strong><p>071 283 3221</p></div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon" style="background:#c6f6d5;"><i class="fab fa-whatsapp" style="color:#25D366;"></i></div>
+            <div><strong>WhatsApp</strong><p>071 283 3221</p></div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon" style="background:#e9d8fd;"><i class="fas fa-envelope" style="color:#805ad5;"></i></div>
+            <div><strong>Email</strong><p>info@stoneautoglass.co.za</p></div>
+          </div>
+          <div style="margin-top:2rem;">
+            <h4>Business Hours</h4>
+            <ul class="office-hours">
+              <li><span>Mon–Fri</span><span>8:00 AM – 5:00 PM</span></li>
+              <li><span>Saturday</span><span>8:00 AM – 1:00 PM</span></li>
+              <li><span>Sunday</span><span>Closed</span></li>
+            </ul>
+          </div>
+        </div>
+        <div class="card">
+          <form id="contactForm">
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.25rem;margin-bottom:1.25rem;">
+              <div class="form-group"><input type="text" class="form-control" placeholder="Your Name" required></div>
+              <div class="form-group"><input type="tel" class="form-control" placeholder="Phone Number" required></div>
+            </div>
+            <div class="form-group"><input type="email" class="form-control" placeholder="Email Address" required></div>
+            <div class="form-group">
+              <select class="form-control" required>
+                <option value="" disabled selected>Select Service</option>
+                <option value="repair">Windscreen Repair</option>
+                <option value="replacement">Windscreen Replacement</option>
+                <option value="side">Side Window</option>
+                <option value="smash">Smash & Grab Protection</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+            <div class="form-group"><textarea class="form-control" placeholder="Tell us about your vehicle and the issue..." required></textarea></div>
+            <button type="submit" class="btn btn-primary" style="width:100%;">Send Message</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="logo" style="color:white;margin-bottom:1.5rem;">
+            <div class="logo-icon"><i class="fas fa-car"></i></div>
+            <span>Stone Auto Glass</span>
+          </div>
+          <p style="color:#a0aec0;margin-bottom:1.5rem;">
+            Your trusted partner for professional auto glass services. Quality workmanship, 
+            affordable prices, and excellent customer service.
+          </p>
+          <div class="social-links">
+            <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+            <a href="https://wa.me/27712833221" class="social-link" target="_blank" rel="noopener noreferrer">
+              <i class="fab fa-whatsapp"></i>
+            </a>
+          </div>
+        </div>
+        <div>
+          <h3 style="font-size:1.25rem;margin-bottom:1.5rem;color:white;">Quick Links</h3>
+          <ul class="footer-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#why-us">Why Choose Us</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 style="font-size:1.25rem;margin-bottom:1.5rem;color:white;">Contact Info</h3>
+          <ul class="footer-links">
+            <li><i class="fas fa-phone" style="margin-right:0.5rem;color:#a0aec0;"></i> 071 283 3221</li>
+            <li><i class="fas fa-envelope" style="margin-right:0.5rem;color:#a0aec0;"></i> info@stoneautoglass.co.za</li>
+            <li><i class="fas fa-map-marker-alt" style="margin-right:0.5rem;color:#a0aec0;"></i> Serving Your Area</li>
+          </ul>
+        </div>
+      </div>
+      <div class="copyright">
+        &copy; <span id="year"></span> Stone Auto Glass. All rights reserved.
+      </div>
+    </div>
+  </footer>
+
+  <!-- Floating Buttons -->
+  <div class="floating-buttons">
+    <a href="https://wa.me/27712833221" class="float-btn whatsapp-btn" title="Chat on WhatsApp" target="_blank" rel="noopener noreferrer">
+      <i class="fab fa-whatsapp"></i>
+    </a>
+    <a href="tel:0712833221" class="float-btn call-btn" title="Call Us">
+      <i class="fas fa-phone"></i>
+    </a>
+  </div>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const navLinks = document.getElementById('navLinks');
+    mobileMenuBtn.addEventListener('click', () => navLinks.classList.toggle('active'));
+    
+    document.querySelectorAll('.nav-link').forEach(link => 
+      link.addEventListener('click', () => navLinks.classList.remove('active'))
+    );
+
+    const header = document.getElementById('header');
+    window.addEventListener('scroll', () => 
+      header.classList.toggle('scrolled', window.scrollY > 50)
+    );
+
+    const contactForm = document.getElementById('contactForm');
+    if (contactForm) {
+      contactForm.addEventListener('submit', e => {
+        e.preventDefault();
+        alert('✅ Thank you! We’ll contact you shortly via WhatsApp or phone.');
+        contactForm.reset();
+      });
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => 
+      anchor.addEventListener('click', e => {
+        e.preventDefault();
+        const target = document.querySelector(anchor.getAttribute('href'));
+        if (target) window.scrollTo({ top: target.offsetTop - 80, behavior: 'smooth' });
+      })
+    );
+  </script>
+</body>
+</html>
